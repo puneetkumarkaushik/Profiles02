@@ -1,0 +1,20 @@
+<% if(users.length > 0) { %>
+	<div class="card-container">
+		<% for (let user of users) { 
+			let imgsrc = 'https://robohash.org/' + user.contact;
+			let removelink = '/remove?id=' + user.id;
+		%>
+			<div class="user-details-container">
+				<h5><%= user.id%></h5>
+				<img src=<%= imgsrc %> alt="user photo">
+				<h4><%= user.name %></h4>
+				<p><%= user.age %> years</p>
+				<p><%= user.email %></p>
+				<p>+91 - <%= user.contact %></p>
+				<p class="remove"><a href=<%= removelink %>>X</a></p>
+			</div>
+		<% } %>
+	</div>
+<% } else { %>
+	<h1>No Users</h1>
+<% } %>
